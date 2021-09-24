@@ -1,0 +1,51 @@
+{
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "inferenceAccelerators": [],
+  "containerDefinitions": [
+      {
+          "name": "example-project",
+          "image": "194673403078.dkr.ecr.ap-northeast-2.amazonaws.com/example-project:latest",
+          "resourceRequirements": null,
+          "essential": true,
+          "portMappings": [
+              {
+                  "containerPort": "3000",
+                  "protocol": "tcp"
+              }
+          ],
+          "environment": null,
+          "environmentFiles": [],
+          "secrets": null,
+          "mountPoints": null,
+          "volumesFrom": null,
+          "hostname": null,
+          "user": null,
+          "workingDirectory": null,
+          "extraHosts": null,
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-group": "/ecs/example-project-task",
+                  "awslogs-region": "ap-northeast-2",
+                  "awslogs-stream-prefix": "ecs"
+              }
+          },
+          "ulimits": null,
+          "dockerLabels": null,
+          "dependsOn": null,
+          "repositoryCredentials": {
+              "credentialsParameter": ""
+          }
+      }
+  ],
+  "volumes": [],
+  "networkMode": "awsvpc",
+  "memory": "512",
+  "cpu": "256",
+  "executionRoleArn": "arn:aws:iam::194673403078:role/ecsTaskExecutionRole",
+  "family": "example-project-task",
+  "taskRoleArn": "arn:aws:iam::194673403078:role/ecsTaskExecutionRole",
+  "tags": []
+}
